@@ -17,6 +17,8 @@ resource "google_compute_instance" "k8s_controller" {
   network_interface {
     subnetwork = google_compute_subnetwork.kubernetes.self_link
     network_ip = "10.240.0.1${count.index}"
+
+    access_config {}
   }
 
   service_account {
@@ -47,6 +49,8 @@ resource "google_compute_instance" "k8s_worker" {
   network_interface {
     subnetwork = google_compute_subnetwork.kubernetes.self_link
     network_ip = "10.240.0.2${count.index}"
+
+    access_config {}
   }
 
   service_account {
