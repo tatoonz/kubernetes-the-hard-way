@@ -43,3 +43,7 @@ resource "google_compute_firewall" "external" {
 
   source_ranges = ["0.0.0.0/0"]
 }
+
+resource "google_compute_address" "ip_address" {
+  name = "kubernetes-the-hard-way"
+}
