@@ -1,10 +1,10 @@
 resource "google_compute_network" "vpc" {
-  name = var.vpc_name
+  name = "kubernetes-the-hard-way"
   auto_create_subnetworks = false
 }
 
 resource "google_compute_subnetwork" "kubernetes" {
-  name = var.vpc_subnet_name
-  ip_cidr_range = var.vpc_subnet_cidr
+  name = "kubernetes"
+  ip_cidr_range = "10.240.0.0/24"
   network = google_compute_network.vpc.self_link
 }
